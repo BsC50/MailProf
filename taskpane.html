@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mail-Prüfer</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="hunspell.js"></script>
+  <script src="pruefung.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+  <header>
+    <img src="assets/icon-32.png" alt="" width="24" height="24">
+    <h1>Mail-Prüfer</h1>
+    <button id="btn-einstellungen" class="icon" title="Einstellungen" aria-label="Einstellungen">⚙︎</button>
+  </header>
+
+  <main id="ansicht-pruefung">
+    <button id="btn-pruefen" class="primaer">Mail jetzt prüfen</button>
+    <p id="status" class="status" role="status"></p>
+    <ul id="liste" class="liste"></ul>
+  </main>
+
+  <section id="ansicht-einstellungen" hidden>
+    <h2>Einstellungen</h2>
+    <label>Dein Name unter der Grussformel
+      <input id="e-name" type="text" placeholder="z. B. Eveline">
+      <small>Ich prüfe, ob dieser Name nach «Freundliche Grüsse» o. Ä. steht.</small>
+    </label>
+    <label class="zeile"><input id="e-rs" type="checkbox"> Rechtschreibung und Grammatik prüfen</label>
+    <label>Sprache
+      <select id="e-sprache">
+        <option value="de-CH">Deutsch (Schweiz, «ss»)</option>
+        <option value="de-DE">Deutsch (Deutschland, «ß»)</option>
+        <option value="de-AT">Deutsch (Österreich)</option>
+      </select>
+    </label>
+    <label>Wörter, die nie als Fehler gelten
+      <textarea id="e-woerter" rows="4" placeholder="ein Wort pro Zeile, z. B. Fachbegriffe"></textarea>
+    </label>
+    <p class="datenschutz">Alle Prüfungen laufen direkt in deinem Outlook. Der Text deiner Mail wird an keinen fremden Dienst geschickt und vom Mail-Prüfer nirgends gespeichert. Gespeichert werden nur diese Einstellungen – in deinem eigenen Outlook-Postfach.</p>
+    <div class="knoepfe">
+      <button id="btn-speichern" class="primaer">Speichern</button>
+      <button id="btn-zurueck">Abbrechen</button>
+    </div>
+  </section>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>

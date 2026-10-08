@@ -1,0 +1,65 @@
+:root {
+  --bg: #ffffff;
+  --text: #1f2328;
+  --leise: #5b6470;
+  --linie: #e3e6ea;
+  --karte: #f7f8fa;
+  --akzent: #2f6f5e;
+  --akzent-hell: #e3f0ec;
+  --fehler: #b42318;
+  --fehler-hell: #fdecea;
+  --hinweis: #9a6700;
+  --hinweis-hell: #fff6dd;
+  --markiert: #ffe08a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1f22; --text: #e8eaed; --leise: #a3a9b1; --linie: #34373c; --karte: #26282c;
+    --akzent: #6fc2a8; --akzent-hell: #1f3530; --fehler: #ff8a80; --fehler-hell: #3a2222;
+    --hinweis: #f2c14e; --hinweis-hell: #3a3220; --markiert: #6b5a1c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0 14px 24px; background: var(--bg); color: var(--text);
+  font: 14px/1.45 "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+header { display: flex; align-items: center; gap: 8px; padding: 14px 0 10px; border-bottom: 1px solid var(--linie); margin-bottom: 14px; }
+header h1 { font-size: 16px; font-weight: 600; margin: 0; flex: 1; }
+h2 { font-size: 15px; margin: 0 0 12px; }
+button {
+  font: inherit; border: 1px solid var(--linie); background: var(--bg); color: var(--text);
+  border-radius: 6px; padding: 6px 12px; cursor: pointer;
+}
+button:hover { border-color: var(--akzent); }
+button.primaer { background: var(--akzent); border-color: var(--akzent); color: #fff; font-weight: 600; width: 100%; padding: 9px 12px; }
+@media (prefers-color-scheme: dark) { button.primaer { color: #10201b; } }
+button.icon { border: none; font-size: 18px; padding: 2px 6px; background: none; }
+button.klein { padding: 3px 9px; font-size: 13px; }
+button.vorschlag { background: var(--akzent-hell); border-color: transparent; color: var(--akzent); font-weight: 600; }
+.status { color: var(--leise); margin: 12px 0; min-height: 1.4em; }
+.status.ok { color: var(--akzent); font-weight: 600; }
+.liste { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.karte { background: var(--karte); border: 1px solid var(--linie); border-left: 4px solid var(--hinweis); border-radius: 8px; padding: 10px 12px; }
+.karte.fehler { border-left-color: var(--fehler); }
+.karte.info { border-left-color: var(--leise); }
+.karte.erledigt { opacity: .55; }
+.karte h3 { margin: 0 0 4px; font-size: 14px; font-weight: 600; }
+.karte p { margin: 0 0 6px; }
+.fundstelle { font-size: 13px; background: var(--bg); border: 1px dashed var(--linie); border-radius: 6px; padding: 6px 8px; margin: 6px 0; word-break: break-word; }
+mark { background: var(--markiert); color: inherit; border-radius: 3px; padding: 0 2px; }
+.hilfe { color: var(--leise); font-size: 13px; }
+.aktionen { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.etikett { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; color: var(--hinweis); }
+.fehler .etikett { color: var(--fehler); }
+.info .etikett { color: var(--leise); }
+label { display: block; margin-bottom: 14px; font-weight: 600; }
+label.zeile { display: flex; align-items: center; gap: 8px; font-weight: 400; }
+label small { display: block; font-weight: 400; color: var(--leise); margin-top: 3px; }
+input[type=text], select, textarea {
+  display: block; width: 100%; margin-top: 4px; font: inherit; font-weight: 400; color: var(--text);
+  background: var(--bg); border: 1px solid var(--linie); border-radius: 6px; padding: 6px 8px;
+}
+.datenschutz { font-size: 12px; color: var(--leise); background: var(--karte); padding: 8px 10px; border-radius: 6px; }
+.knoepfe { display: flex; gap: 8px; }
+.knoepfe .primaer { width: auto; flex: 1; }
